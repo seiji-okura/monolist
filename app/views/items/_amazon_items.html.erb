@@ -4,8 +4,12 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% img = item.get('LargeImage/URL') %>
+            <% if img %>
+              <%= image_tag(img , alt: item.get('ItemAttributes/Title')) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% end %>
           </div>
         </div>
         <div class="detail">
