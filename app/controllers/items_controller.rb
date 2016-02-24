@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def new
+    #binding.pry
     if params[:q]
       response = Amazon::Ecs.item_search(params[:q] , 
                                   :search_index => 'All' , 
