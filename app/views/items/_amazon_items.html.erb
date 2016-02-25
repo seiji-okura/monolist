@@ -27,18 +27,19 @@
                       :class => "have-#{item.get('ASIN')} btn-have btn btn-danger btn-sm have",
                       :remote => true,
                       :method => :post %>
-
-          <%# itm = Item.find_or_create_by(asin: item.get('ASIN')) %>
-          <%# if current_user.want?(itm) %>
-            <%#= render "unwant", item: itm %>
-          <%# else %>
-            <%#= render "want", item: itm %>
-          <%# end %>
-          <%# if current_user.have?(itm) %>
-            <%#= render "unhave", item: itm %>
-          <%# else %>
-            <%#= render "have", item: itm %>
-          <%# end %>
+          <% if false %>
+          <% itm = Item.find_or_create_by(asin: item.get('ASIN')) %>
+          <% if current_user.want?(itm) %>
+            <%= render "unwant", item: itm %>
+          <% else %>
+            <%= render "want", item: itm %>
+          <% end %>
+          <% if current_user.have?(itm) %>
+            <%= render "unhave", item: itm %>
+          <% else %>
+            <%= render "have", item: itm %>
+          <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
