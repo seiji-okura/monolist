@@ -19,6 +19,7 @@
         </div>
         <div class="action clearfix">
           
+          <% if false %>
           <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
                       :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm want",
                       :remote => true,
@@ -27,7 +28,9 @@
                       :class => "have-#{item.get('ASIN')} btn-have btn btn-danger btn-sm have",
                       :remote => true,
                       :method => :post %>
-          <% if false %>
+          <% end %>
+          
+          <%# if false %>
           <% itm = Item.find_or_create_by(asin: item.get('ASIN')) %>
           <% if current_user.want?(itm) %>
             <%= render "unwant", item: itm %>
@@ -39,7 +42,7 @@
           <% else %>
             <%= render "have", item: itm %>
           <% end %>
-          <% end %>
+          <%# end %>
         </div>
       </div>
     <% end %>
