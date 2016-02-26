@@ -19,7 +19,7 @@
         </div>
         <div class="action clearfix">
           
-          <% if false %>
+          <%# if false %>
           <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
                       :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm want",
                       :remote => true,
@@ -28,9 +28,14 @@
                       :class => "have-#{item.get('ASIN')} btn-have btn btn-danger btn-sm have",
                       :remote => true,
                       :method => :post %>
-          <% end %>
+          <%# end %>
           
-          <%# if false %>
+          <!-- すみません。こっちで実行すると
+               アイテムに変なデータが正しく初期化されませんでした。
+                異常データの削除が必要です。
+                *Itemの asin のみ初期化で登録されてしまう。
+          -->
+          <%if false %>
           <% itm = Item.find_or_create_by(asin: item.get('ASIN')) %>
           <% if current_user.want?(itm) %>
             <%= render "unwant", item: itm %>
@@ -42,7 +47,7 @@
           <% else %>
             <%= render "have", item: itm %>
           <% end %>
-          <%# end %>
+          <% end %>
         </div>
       </div>
     <% end %>
