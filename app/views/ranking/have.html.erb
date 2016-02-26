@@ -1,0 +1,8 @@
+<h1>売れ筋商品ランキング</h1>
+
+<% content_for :head do %>
+  <title>売れ筋商品 Rankng-Monolist</title>
+  <descroption>売れ筋商品 Rankng</descroption>
+<% end %>
+
+<%= render "ranking", ranking: @ranking %>

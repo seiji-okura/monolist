@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+    <% i=0 %>
+    <% ranking.each do |rank| %>
+      <% item = Item.find(rank[0]) %>
+      <div class="item-box">
+        <div class="image">
+          <div class="img-wrap">
+            <% if item.large_image.present? %>
+              <%= image_tag(item.large_image , alt: item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.title) %>
+            <% end %>
+            <div class="ranking">
+            <%= i+=1 %>位
+            <% if i <= 3 %>
+              <span class="glyphicon glyphicon-king"></span>
+            <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= item.title %>
+          </p>
+        </div>
+        <div>
+        <%= link_to(image_tag("amazon-button.png", {alt: "Amazon詳細ページへ"}), item.detail_page_url) %>
+        </div>
+        <%= render 'items/action' , item: item if logged_in? %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
