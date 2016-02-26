@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <title>[<%= @user.name %>]-Monolist</title>
+  <descroption>[<%= @user.name %>]のモノページ。Hanakoの欲しいモノ、持ってるモノを表示しています。</descroption>
+<% end %>
 <%= render 'profile' , user: @user %>
 
 
