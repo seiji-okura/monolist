@@ -13,7 +13,11 @@
         </div>
         <div class="detail">
           <p class="title">
-            <%= item.title %>
+            <% if item.title.present? %>
+              <%= item.title %>
+            <% else %>
+              <%= item.asin %>
+            <% end %>
           </p>
         </div>
         <%= render 'items/action' , item: item if logged_in? %>
