@@ -25,13 +25,13 @@
                       :remote => true,
                       :method => :post %>
           <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Have") ,
-                      :class => "have-#{item.get('ASIN')} btn-have btn btn-danger btn-sm have",
+                      :class => "have-#{item.get('ASIN')} btn-have btn btn-warning btn-sm have",
                       :remote => true,
                       :method => :post %>
           <%# end %>
           
           <!-- すみません。こっちで実行すると
-               アイテムに変なデータが正しく初期化されませんでした。
+               アイテムに正しく初期化されませんでした。
                 異常データの削除が必要です。
                 *Itemの asin のみ初期化で登録されてしまう。
           -->
