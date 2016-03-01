@@ -1,8 +1,7 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
     <% i=0 %>
-    <% ranking.each do |rank| %>
-      <% item = Item.find(rank[0]) %>
+    <% items.each do |item| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
@@ -12,7 +11,7 @@
               <%= image_tag("no-image.png" , alt: item.title) %>
             <% end %>
             <div class="ranking">
-            <%= i+=1 %>位
+            <%= i+=1 %>位(<%= counts[item.id] %>)
             <% if i <= 3 %>
               <span class="glyphicon glyphicon-king"></span>
             <% end %>
